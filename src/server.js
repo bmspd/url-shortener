@@ -14,6 +14,17 @@ const app = express()
 const PORT = 3000
 app.use(express.json())
 app.get('/ping', ping)
+app.get('/test-route', async function(req, res, next) {
+    try {
+        console.log('no-timeout')
+        setTimeout(() => {
+            console.log('timeout')
+        }, 1000)
+        res.send('HELLO')
+    } catch (e) {
+        next(e)
+    }
+})
 app.get('/:alias', getAlias)
 app.post('/links', addAlias)
 app.put('/:alias/reset', resetAlias)

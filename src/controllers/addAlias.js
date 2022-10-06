@@ -1,5 +1,3 @@
-const {getLinkByAlias, isLinkExists} = require("../services/links");
-const {BadRequestError} = require("../modules/errors");
 const {generateRandomString} = require("../utils/generateString");
 const linksService = require('../services/links')
 
@@ -8,7 +6,6 @@ async function addAlias(request, response, next) {
         const linkObject = request.body
         const { link, isOneTimeLink, ttl } = linkObject
 
-        //if (await isLinkExists(link)) throw new BadRequestError("This link is already exists")
         const random = generateRandomString(8)
         const newLink = {
             link,
@@ -19,6 +16,11 @@ async function addAlias(request, response, next) {
         }
         if (ttl) newLink.ttl = ttl
         const newLinkFromDB = await linksService.addAlias(random, newLink)
+        if (ttl) {
+            setTimeout(() => {
+                linksService.deleteAlias(random)
+            }, ttl)
+        }
         delete newLinkFromDB['created_at']
         response.send(newLinkFromDB)
     } catch (e) {
