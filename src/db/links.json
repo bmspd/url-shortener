@@ -1,0 +1,39 @@
+{
+  "music": {
+    "link": "https://music.yandex.ru",
+    "visited": 3,
+    "isOneTimeLink": false
+  },
+  "map": {
+    "link": "https://yandex.ru/maps/",
+    "visited": 0,
+    "isOneTimeLink": false
+  },
+  "tr": {
+    "link": "https://translate.yandex.ru",
+    "visited": 0,
+    "isOneTimeLink": false
+  },
+  "ko3ccj30": {
+    "link": "https://yandex.ru/maps/1",
+    "isOneTimeLink": "false",
+    "visited": 0,
+    "alias": "ko3ccj30"
+  },
+  "w063rke3": {
+    "link": "https://yandex.ru/maps/test",
+    "isOneTimeLink": "false",
+    "visited": 11,
+    "alias": "w063rke3",
+    "created_at": 1665082010875,
+    "ttl": 1000
+  },
+  "4dvuce7n": {
+    "link": "https://yandex.ru/maps/test",
+    "isOneTimeLink": "true",
+    "visited": 0,
+    "alias": "4dvuce7n",
+    "created_at": 1665082700466,
+    "ttl": 20000
+  }
+}
